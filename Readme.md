@@ -42,4 +42,5 @@ Time taken to assemble is: 15.7373
 Time taken to do Mat-Vec product is: 0.230789
 
 Performing error calculation in box: 2732
+
 err: 5.37262e-06
