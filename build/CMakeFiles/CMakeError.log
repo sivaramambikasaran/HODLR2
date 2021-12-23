@@ -1,0 +1,208 @@
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_f963d/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_f963d.dir/build.make CMakeFiles/cmTC_f963d.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f963d.dir/OpenMPTryFlag.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_f963d.dir/OpenMPTryFlag.c.o   -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+gmake[1]: *** [CMakeFiles/cmTC_f963d.dir/build.make:86: CMakeFiles/cmTC_f963d.dir/OpenMPTryFlag.c.o] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_f963d/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_4a935/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_4a935.dir/build.make CMakeFiles/cmTC_4a935.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4a935.dir/OpenMPTryFlag.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_4a935.dir/OpenMPTryFlag.c.o   -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+gmake[1]: *** [CMakeFiles/cmTC_4a935.dir/build.make:86: CMakeFiles/cmTC_4a935.dir/OpenMPTryFlag.c.o] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_4a935/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_9348e/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_9348e.dir/build.make CMakeFiles/cmTC_9348e.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9348e.dir/OpenMPTryFlag.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_9348e.dir/OpenMPTryFlag.c.o   -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: error: unsupported option '-fopenmp'
+gmake[1]: *** [CMakeFiles/cmTC_9348e.dir/build.make:86: CMakeFiles/cmTC_9348e.dir/OpenMPTryFlag.c.o] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_9348e/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_35f56/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_35f56.dir/build.make CMakeFiles/cmTC_35f56.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35f56.dir/OpenMPTryFlag.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_35f56.dir/OpenMPTryFlag.c.o   -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.14.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mdisable-fp-elim -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -ggnu-pubnames -target-linker-version 530 -v -coverage-notes-file /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_35f56.dir/OpenMPTryFlag.c.gcno -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -I/usr/local/include -Wno-framework-include-private-from-public -Wno-atimport-in-framework-header -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.14.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_35f56.dir/OpenMPTryFlag.c.o -x c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.0 (clang-1100.0.33.17) default target x86_64-apple-darwin18.7.0
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+Linking C executable cmTC_35f56
+/usr/local/Cellar/cmake/3.17.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35f56.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14 -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_35f56.dir/OpenMPTryFlag.c.o  -o cmTC_35f56  -v -Wl,-v 
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o cmTC_35f56 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_35f56.dir/OpenMPTryFlag.c.o -v -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-530
+BUILD 18:57:17 Dec 13 2019
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib
+Framework search paths:
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
+Undefined symbols for architecture x86_64:
+  "_omp_get_max_threads", referenced from:
+      _main in OpenMPTryFlag.c.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+gmake[1]: *** [CMakeFiles/cmTC_35f56.dir/build.make:107: cmTC_35f56] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_35f56/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_4231d/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_4231d.dir/build.make CMakeFiles/cmTC_4231d.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4231d.dir/OpenMPTryFlag.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_4231d.dir/OpenMPTryFlag.cpp.o -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+gmake[1]: *** [CMakeFiles/cmTC_4231d.dir/build.make:86: CMakeFiles/cmTC_4231d.dir/OpenMPTryFlag.cpp.o] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_4231d/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_7022b/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_7022b.dir/build.make CMakeFiles/cmTC_7022b.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7022b.dir/OpenMPTryFlag.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_7022b.dir/OpenMPTryFlag.cpp.o -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+gmake[1]: *** [CMakeFiles/cmTC_7022b.dir/build.make:86: CMakeFiles/cmTC_7022b.dir/OpenMPTryFlag.cpp.o] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_7022b/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_8f5da/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_8f5da.dir/build.make CMakeFiles/cmTC_8f5da.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8f5da.dir/OpenMPTryFlag.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_8f5da.dir/OpenMPTryFlag.cpp.o -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+clang: error: unsupported option '-fopenmp'
+gmake[1]: *** [CMakeFiles/cmTC_8f5da.dir/build.make:86: CMakeFiles/cmTC_8f5da.dir/OpenMPTryFlag.cpp.o] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_8f5da/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/gmake cmTC_1aa20/fast && /usr/local/bin/gmake  -f CMakeFiles/cmTC_1aa20.dir/build.make CMakeFiles/cmTC_1aa20.dir/build
+gmake[1]: Entering directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1aa20.dir/OpenMPTryFlag.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -o CMakeFiles/cmTC_1aa20.dir/OpenMPTryFlag.cpp.o -c /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.14.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mdisable-fp-elim -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -ggnu-pubnames -target-linker-version 530 -v -coverage-notes-file /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_1aa20.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -I/usr/local/include -stdlib=libc++ -internal-isystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -Wno-framework-include-private-from-public -Wno-atimport-in-framework-header -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.14.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_1aa20.dir/OpenMPTryFlag.cpp.o -x c++ /Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.0 (clang-1100.0.33.17) default target x86_64-apple-darwin18.7.0
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+Linking CXX executable cmTC_1aa20
+/usr/local/Cellar/cmake/3.17.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1aa20.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14 -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_1aa20.dir/OpenMPTryFlag.cpp.o  -o cmTC_1aa20  -v -Wl,-v 
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -lto_library /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.14.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -o cmTC_1aa20 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_1aa20.dir/OpenMPTryFlag.cpp.o -v -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-530
+BUILD 18:57:17 Dec 13 2019
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Library search paths:
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib
+Framework search paths:
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
+Undefined symbols for architecture x86_64:
+  "_omp_get_max_threads", referenced from:
+      _main in OpenMPTryFlag.cpp.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+gmake[1]: *** [CMakeFiles/cmTC_1aa20.dir/build.make:107: cmTC_1aa20] Error 1
+gmake[1]: Leaving directory '/Users/vaishnavi/Documents/GitHub/HODLR2D_MatVec/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_1aa20/fast] Error 2
+
+
+

@@ -1,7 +1,19 @@
+#include <bits/stdc++.h>
+// #include <omp.h>
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+// #define EIGEN_DONT_PARALLELIZE
+
+#include <map>
+// struct pts2D {
+// 	double x,y;
+// };
 #include "kernel.hpp"
 #include "ACA.hpp"
+#include "HODLR2DBox.hpp"
 #include "HODLR2DTree.hpp"
-#include "KDTree.cpp"
+#include "KDTree.hpp"
 
 int main(int argc, char* argv[]) {
 	unsigned N    =       atoi(argv[1]);  //      Number of particles.
@@ -36,16 +48,18 @@ int main(int argc, char* argv[]) {
   double* sorted_Properties       =       new double[N*n_Properties];
   std::vector<int> NumberOfParticlesInLeaves;// contains number of particels in each leaf in N ordering
   // Creates a KDTree given the locations. This KD Tree class generates a uniform tree - all leaves are at level nLevels. Number of particles in boxes at a given level differ by atmost 1.
-  sort_KDTree(N, n_Dimension, locations, n_Properties, properties, MinParticlesInLeaf, nLevels, sorted_Locations, sorted_Properties, boxNumbers, NumberOfParticlesInLeaves);
+
+	std::vector<pts2D> particles_X2, particles_Y2;
+	userkernel* mykernel2		=	new userkernel(particles_X2, particles_Y2);
+
+	sort_KDTree(N, n_Dimension, locations, n_Properties, properties, MinParticlesInLeaf, nLevels, sorted_Locations, sorted_Properties, boxNumbers, NumberOfParticlesInLeaves);
 
 	///////////////////////////// HODLR2D ////////////////////////////////////////////
 	start	=	omp_get_wtime();
 	std::vector<pts2D> particles_X, particles_Y;
 	userkernel* mykernel		=	new userkernel(particles_X, particles_Y);
-	HODLR2DTree<userkernel>* A	=	new HODLR2DTree<userkernel>(mykernel, N, nLevels, L, TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
+	HODLR2DTree* A	=	new HODLR2DTree(mykernel, N, nLevels, L, TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
 
-	// A->set_Uniform_Nodes();
-	// A->set_Standard_Cheb_Nodes();
 	A->createTree();
 	A->assign_Tree_Interactions();
 
@@ -62,7 +76,6 @@ int main(int argc, char* argv[]) {
 
 	A->getNodes();
 	A->assemble_M2L();
-	// int N = A->N;
 	Eigen::VectorXd b(N);
 	for (size_t i = 0; i < N; i++) {
 		b(i) = A->K->chargesFunction(A->gridPoints[i]);
