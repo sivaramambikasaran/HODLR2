@@ -27,6 +27,7 @@ public:
 
 	Eigen::VectorXd getRow(const int j, std::vector<int> col_indices);
   Eigen::VectorXd getCol(const int k, std::vector<int> row_indices);
+  Eigen::MatrixXd getMatrix(int row_start_index, int row_end_index, int col_start_index, int col_end_index);
   Eigen::MatrixXd getMatrix(std::vector<int> row_indices, std::vector<int> col_indices);
 
   ~kernel() {};
@@ -34,7 +35,7 @@ public:
 
 class userkernel: public kernel {
 public:
-	double chargesFunction(const pts2D r);
+	double defineVector(const pts2D r);
 	// #ifdef ONEOVERR
 	// userkernel(std::vector<pts2D>& particles_X, std::vector<pts2D>& particles_Y): kernel(particles_X, particles_Y) {
 	// };

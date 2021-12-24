@@ -55,6 +55,7 @@ public:
 	void evaluate_L2L();
 	void evaluate_NearField(); // evaluating at chargeLocations
 	double compute_error(int nBox); // evaluating at chargeLocations
+	Eigen::VectorXd getMatVecProductOutput();
 };
 
 #endif

@@ -83,7 +83,8 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
   double prev_normS = DBL_MAX;
   this->maxAbsVector(col, remaining_row_ind, max, row_index);
 
-  while (abs(row(int(col_index))) > tol_ACA && abs(col(int(row_index))) > tol_ACA && abs(prev_normS-normS) >= tol_ACA*prev_normS && computed_rank < min) {
+  while (abs(prev_normS-normS) >= tol_ACA*prev_normS && computed_rank < min) {
+  // while (abs(row(int(col_index))) > tol_ACA && abs(col(int(row_index))) > tol_ACA && abs(prev_normS-normS) >= tol_ACA*prev_normS && computed_rank < min) {
     row_bases.push_back(int(row_index));
     row = K->getRow(row_indices[row_index], col_indices);
     row_temp = row;
@@ -105,11 +106,11 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
       }
     }
     u	=	col;
-    if(u.norm()< 1e-8 || v.norm()< 1e-8) {
-      row_bases.pop_back();
-      col_bases.pop_back();
-      break;
-    }
+    // if(u.norm()< 1e-8 || v.norm()< 1e-8) {
+    //   row_bases.pop_back();
+    //   col_bases.pop_back();
+    //   break;
+    // }
     Uvec.push_back(u);
     Vvec.push_back(v);
     Ac.col(computed_rank) = col_temp;

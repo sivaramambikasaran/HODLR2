@@ -543,8 +543,9 @@ void HODLR2DTree::assemble_M2L() {
 void HODLR2DTree::assignLeafCharges(Eigen::VectorXd &charges) {
   int start = 0;
   for (size_t k = 0; k < nBoxesPerLevel[nLevels]; k++) {
-    tree[nLevels][k].charges	=	charges.segment(start, tree[nLevels][k].chargeLocations.size());
-    start += tree[nLevels][k].chargeLocations.size();
+    int boxNum = boxNumbers[k];
+    tree[nLevels][boxNum].charges	=	charges.segment(start, tree[nLevels][boxNum].chargeLocations.size());
+    start += tree[nLevels][boxNum].chargeLocations.size();
   }
 }
 
@@ -640,6 +641,27 @@ void HODLR2DTree::evaluate_NearField() { // evaluating at chargeLocations
     tree[nLevels][k].potential += R*tree[nLevels][k].charges; //self Interaction
   }
 }
+
+Eigen::VectorXd HODLR2DTree::getMatVecProductOutput() { // evaluating at chargeLocations
+  Eigen::VectorXd r(N);
+  int offset = 0;
+  for (size_t k = 0; k < nBoxesPerLevel[nLevels]; k++) {
+    int boxNum = boxNumbers[k];
+    // std::cout << boxNum << std::endl;
+    r.segment(offset,tree[nLevels][boxNum].potential.size()) = tree[nLevels][boxNum].potential;
+    offset += tree[nLevels][boxNum].potential.size();
+  }
+  return r;
+}
+
+// void getOutputVector(Eigen::VectorXd& outputVec) {
+//   int index = 0;
+//   for (size_t k = 0; k < nBoxesPerLevel[nLevels]; k++) {
+//     int boxNum = boxNumbers[k];
+//     outputVec.segment(index, tree[nLevels][boxNum].charges.size()) = tree[nLevels][boxNum].potential;
+//     index += tree[nLevels][boxNum].charges.size();
+//   }
+// }
 
 double HODLR2DTree::compute_error(int nBox) { // evaluating at chargeLocations
   Eigen::VectorXd true_potential = Eigen::VectorXd::Zero(tree[nLevels][nBox].chargeLocations.size());

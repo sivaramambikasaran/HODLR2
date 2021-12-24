@@ -20,6 +20,18 @@ Eigen::VectorXd kernel::getCol(const int k, std::vector<int> row_indices) {
   return col;
 }
 
+Eigen::MatrixXd kernel::getMatrix(int row_start_index, int col_start_index, int row_end_index, int col_end_index) {
+  Eigen::MatrixXd mat(row_end_index-row_start_index, col_end_index-col_start_index);
+  #pragma omp parallel for
+  for (int j=row_start_index; j < row_end_index; ++j) {
+      #pragma omp parallel for
+      for (int k=col_start_index; k < col_end_index; ++k) {
+          mat(j,k) = this->getMatrixEntry(j, k);
+      }
+  }
+  return mat;
+}
+
 Eigen::MatrixXd kernel::getMatrix(std::vector<int> row_indices, std::vector<int> col_indices) {
   int n_rows = row_indices.size();
   int n_cols = col_indices.size();
@@ -34,22 +46,7 @@ Eigen::MatrixXd kernel::getMatrix(std::vector<int> row_indices, std::vector<int>
   return mat;
 }
 
-double userkernel::chargesFunction(const pts2D r) {
+double userkernel::defineVector(const pts2D r) {
   double q = r.x; //user defined
   return q;
-}
-
-double userkernel::getMatrixEntry(const unsigned i, const unsigned j) {
-  pts2D r1 = particles_X[i];
-  pts2D r2 = particles_X[j];
-  double R2	=	(r1.x-r2.x)*(r1.x-r2.x) + (r1.y-r2.y)*(r1.y-r2.y);
-  if (R2 < 1e-10) {
-    return 0.0;
-  }
-  else if (R2 < a*a) {
-    return 0.5*R2*log(R2)/a/a;
-  }
-  else {
-    return 0.5*log(R2);
-  }
 }
