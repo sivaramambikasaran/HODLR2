@@ -6,9 +6,6 @@
 #include <vector>
 #include <Eigen/Dense>
 
-// struct pts2D {
-// 	double x,y;
-// };
 #include "definitions.hpp"
 
 class HODLR2DBox {

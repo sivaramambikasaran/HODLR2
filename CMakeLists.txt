@@ -57,6 +57,7 @@ set(HODLR2Dlib_SRCS
     ${PROJECT_SOURCE_DIR}/src/HODLR2DBox.cpp
     ${PROJECT_SOURCE_DIR}/src/HODLR2DTree.cpp
     ${PROJECT_SOURCE_DIR}/src/KDTree.cpp
+    ${PROJECT_SOURCE_DIR}/src/HODLR2D.cpp
    )
 
 if(INPUT_FILE)
