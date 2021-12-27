@@ -33,13 +33,13 @@ HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc,
   std::vector<pts2D> particles_X, particles_Y;
   mykernel		=	new userkernel(particles_X, particles_Y);
   hodlr2dtree	=	new HODLR2DTree(mykernel, int(N), int(nLevels), L, TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
-}
-
-void HODLR2::assemble() {
   hodlr2dtree->createTree();
   hodlr2dtree->assign_Tree_Interactions();
   hodlr2dtree->assign_Center_Location();
   hodlr2dtree->assignLeafChargeLocations();
+}
+
+void HODLR2::assemble() {
   hodlr2dtree->getNodes();
   hodlr2dtree->assemble_M2L();
 }
@@ -68,7 +68,7 @@ Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
 void HODLR2::evaluateError() {
   srand(time(NULL));
   std::cout << std::endl << "Performing error calculation in box: " << std::endl;
-  for (size_t i = 0; i < 20; i++) {
+  for (size_t i = 0; i < 10; i++) {
     int nBox	=	rand()%hodlr2dtree->nBoxesPerLevel[nLevels];
     std::cout << "nBox: " << nBox << "	err: " << hodlr2dtree->compute_error(nBox) << std::endl;
   }
