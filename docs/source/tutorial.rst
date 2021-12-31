@@ -17,18 +17,13 @@ There are some variables that need to be set by the user at the top of the ``CMa
 Running the program::
 ---------------------
 
-- N: Size of the Matrix in consideration
-- MinParticlesInLeaf: Minimum particles that can be present in a leaf of KD tree
-- TOL_POW: Tolerance of problem
-
 For this particular tutorial, the problem parameters are passed to the executable during runtime. We have the lines::
 
-    N                  = atoi(argv[1]);
-    MinParticlesInLeaf = atoi(argv[2]);
-    TOL_POW            = atoi(argv[3]);
+    N                  = atoi(argv[1]); // Size of the Matrix in consideration
+    MinParticlesInLeaf = atoi(argv[2]); // Minimum particles that can be present in a leaf of KD tree
+    TOL_POW            = atoi(argv[3]); // Tolerance of problem
 
 This means that the first argument would be the matrix size considered, the second one would be the Minimum particles that can be present in a leaf of KD tree, and the final argument is approximately the number of digits of accuracy we want. For instance, running ``./tutorial 10000 32 12`` would correspond to solving the problem with parameters :math:`N=1000, MinParticlesInLeaf=32, \epsilon=10^{-12}`.
-
 
 Creating a Derived Class of ``kernel``:
 ---------------------------------------
@@ -36,21 +31,13 @@ Creating a Derived Class of ``kernel``:
 The matrix that needs to be solved for is abstracted through this derived class of ``kernel``. The main method that needs to be set for this class is ``getMatrixEntry`` which returns the entry at the :math:`i^{\mathrm{th}}` row and :math:`j^{\mathrm{th}}` column of the matrix. For instance, for the :math:`1 / R` kernel, this would be set as::
 
   class userkernel: public kernel {
-
   public:
-
   getMatrixEntry(const unsigned i, const unsigned j) {
-
   	pts2D r1 = particles_X[i];
-
   	pts2D r2 = particles_X[j];
-
   	double R2	=	(r1.x-r2.x)*(r1.x-r2.x) + (r1.y-r2.y)*(r1.y-r2.y);
-
   	double R	=	sqrt(R2);
-
   	if (R < a) {
-
   		return R/a;
   	}
   	else {
@@ -64,11 +51,8 @@ The matrix that needs to be solved for is abstracted through this derived class 
 In this tutorial, we have initialized ``loc``, a random set of points in :math:`(-1, 1)` which are then passed to the constructor of object ``HODLR2``::
 
   Eigen::MatrixXd loc(N,Dimension);
-
   for (size_t j = 0; j < N; j++) {
-
     for (size_t k = 0; k < Dimension; k++) {
-
       loc(j,k) = 2.0*double(rand())/double(RAND_MAX)-1.0; // domain: [-1,1]x[-1,1]
     }
   }
@@ -81,11 +65,11 @@ In this tutorial, we have defined ``b``, the vector that is to be multiplied to 
   Eigen::VectorXd b = Eigen::VectorXd::Random(N);
 
 Creating the Instance of ``HODLR2``:
-----------------------------------
+------------------------------------
 
 The main operations of this library are carried out through the ``HODLR2`` class. The parameters that are taken for the constructor are N, MinParticlesInLeaf, TOL_POW, loc::
 
-HODLR2* hodlr2 = new HODLR2(N, MinParticlesInLeaf, TOL_POW, loc);
+  HODLR2* hodlr2 = new HODLR2(N, MinParticlesInLeaf, TOL_POW, loc);
 
 We will now proceed to demonstrate the individual methods available under this class.
 

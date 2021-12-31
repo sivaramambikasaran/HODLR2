@@ -45,8 +45,6 @@ To check this on your computer, run the following lines::
     user@computer build$ make
     user@computer build$ ./test_HODLR2
 
-For a succesful test, the final line of output for this run would read:"Reached End of Test File Successfully! All functions work as intended!".
-
 Building and Executing
 ----------------------
 
