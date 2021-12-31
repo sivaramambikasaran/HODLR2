@@ -68,8 +68,8 @@ Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
 void HODLR2::evaluateError() {
   srand(time(NULL));
   std::cout << std::endl << "Performing error calculation in box: " << std::endl;
-  for (size_t i = 0; i < 10; i++) {
-    int nBox	=	rand()%hodlr2dtree->nBoxesPerLevel[nLevels];
+  for (size_t nBox = 0; nBox < 16; nBox++) {
+    // int nBox	=	rand()%hodlr2dtree->nBoxesPerLevel[nLevels];
     std::cout << "nBox: " << nBox << "	err: " << hodlr2dtree->compute_error(nBox) << std::endl;
   }
 }

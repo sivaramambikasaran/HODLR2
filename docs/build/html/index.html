@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to HODLR2Dlib’s Documentation! &#8212; HODLR2Ddoc 1.0 documentation</title>
+    <title>Welcome to HODLR2lib’s Documentation! &#8212; HODLR2Ddoc 1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -33,14 +33,24 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-hodlr2dlib-s-documentation">
-<h1>Welcome to HODLR2Dlib’s Documentation!<a class="headerlink" href="#welcome-to-hodlr2dlib-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="about-texttt-hodlr2dlib">
-<h2>About <span class="math notranslate nohighlight">\(\texttt{HODLR2Dlib}\)</span>:<a class="headerlink" href="#about-texttt-hodlr2dlib" title="Permalink to this headline">¶</a></h2>
-<p>HODLR2D is an extension of the HODLR idea in 2D. In 1D, the HODLR works fine since the sub-domain corresponding to the sub-matrices that are compressed share only a vertex. If we try to extend the HODLR in 2D, where we again compress the off-diagonal blocks, we see that (apart from compressing the interaction between the sub-domains that share a vertex), sub-domains that share an edge are also compressed.</p>
-<p><span class="math notranslate nohighlight">\(\texttt{HODLR2Dlib}\)</span> is a library consisting of fast matrix operations for matrices based on HODLR2D structure. In the current version, the operation available is matrix multiplication.</p>
+  <div class="section" id="welcome-to-hodlr2lib-s-documentation">
+<h1>Welcome to HODLR2lib’s Documentation!<a class="headerlink" href="#welcome-to-hodlr2lib-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-texttt-hodlr2lib">
+<h2>About <span class="math notranslate nohighlight">\(\texttt{HODLR2lib}\)</span>:<a class="headerlink" href="#about-texttt-hodlr2lib" title="Permalink to this headline">¶</a></h2>
+<p>HODLR2 is a new class of hierarchical matrices used to represent dense matrices arising in the discretization of elliptic PDEs in 2D. It is an extension of the HODLR idea in 2D. When the domain is 1D, the HODLR structure is such that, the sub-domain corresponding to the sub-matrices that are compressed share only a vertex. If we try to extend the HODLR in 2D, where we again compress the off-diagonal blocks, we see that (apart from compressing the interaction between the sub-domains that share a vertex), sub-domains that share an edge are also compressed. It is observed that the rank of the interaction corresponding to edge sharing boxes grows with N, the problem size.</p>
+<p>HODLR2 is a new class of matrix representation, where all the sub-matrices except for the following are compressed</p>
+<ul class="simple">
+<li>the sub-matrices corresponding to the interaction between the edge sharing blocks</li>
+<li>the sub-matrices corresponding to the self interaction (diagonal blocks)</li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\texttt{HODLR2lib}\)</span> is a library consisting of fast matrix operations for HODLR2 matrices. In the current version, the operation available is matrix multiplication.</p>
 <p>Low-rank approximation of the appropriate blocks is obtained using ACA. The domain is subdivided based on a KDTree. The algorithm has been parallelized using OpenMP.</p>
-<p>The code is written in C++ and features an easy-to-use interface, where the user provides input through a <code class="docutils literal notranslate"><span class="pre">kernel</span></code> object which abstracts data of the matrix through a member function <code class="docutils literal notranslate"><span class="pre">getMatrixEntry(int</span> <span class="pre">i,</span> <span class="pre">int</span> <span class="pre">j)</span></code> which returns the entry at the <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> row and <span class="math notranslate nohighlight">\(j^{\mathrm{th}}\)</span> column of the matrix.</p>
+<p>The code is written in C++ and features an easy-to-use interface, where the user provides the following inputs:</p>
+<ul class="simple">
+<li>a <code class="docutils literal notranslate"><span class="pre">kernel</span></code> object which abstracts data of the matrix through a member function <code class="docutils literal notranslate"><span class="pre">getMatrixEntry(int</span> <span class="pre">i,</span> <span class="pre">int</span> <span class="pre">j)</span></code> which returns the entry at the <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> row and <span class="math notranslate nohighlight">\(j^{\mathrm{th}}\)</span> column of the matrix.</li>
+<li>locations of nodes in the domain through an Eigen matrix <code class="docutils literal notranslate"><span class="pre">loc</span></code></li>
+<li>the vector <code class="docutils literal notranslate"><span class="pre">b</span></code> to be multiplied to the matrix</li>
+</ul>
 <p>The current release has the following capabilities:</p>
 <ul class="simple">
 <li>MatVecs: Obtains <span class="math notranslate nohighlight">\(A x\)</span> at a cost of <span class="math notranslate nohighlight">\(\mathcal{O}\left(N\right)\)</span></li>
@@ -55,16 +65,13 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#downloading-the-source">Downloading the Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#building-and-executing">Building and Executing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#testing">Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Time Taken vs Tolerance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#fast-matvec">Fast MatVec</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks.html#time-taken-vs-size-of-matrix">Time Taken vs Size of Matrix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#id1">Fast MatVec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#time-taken-vs-tolerance">Time Taken vs Tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#time-taken-vs-size-of-matrix">Time Taken vs Size of Matrix</a></li>
 </ul>
 </li>
 </ul>
@@ -72,10 +79,10 @@
 </div>
 <div class="section" id="other-links">
 <h2>Other Links<a class="headerlink" href="#other-links" title="Permalink to this headline">¶</a></h2>
-<p>Learn more about <span class="math notranslate nohighlight">\(\texttt{HODLRlib}\)</span> by visiting the</p>
+<p>Learn more about <span class="math notranslate nohighlight">\(\texttt{HODLR2lib}\)</span> by visiting the</p>
 <ul class="simple">
-<li>Code Repository: <a class="reference external" href="http://github.com/sivaramambikasaran/HODLR">http://github.com/sivaramambikasaran/HODLR</a></li>
-<li>Documentation: <a class="reference external" href="http://hodlrlib.rtfd.io">http://hodlrlib.rtfd.io</a></li>
+<li>Code Repository: <a class="reference external" href="http://github.com/sivaramambikasaran/HODLR2">http://github.com/sivaramambikasaran/HODLR2</a></li>
+<li>Documentation: <a class="reference external" href="http://hodlr2lib.rtfd.io">http://hodlr2lib.rtfd.io</a></li>
 </ul>
 </div>
 </div>
@@ -100,8 +107,7 @@
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Building</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Time Taken vs Tolerance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks.html#time-taken-vs-size-of-matrix">Time Taken vs Size of Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a></li>
 </ul>
 
 <div class="relations">

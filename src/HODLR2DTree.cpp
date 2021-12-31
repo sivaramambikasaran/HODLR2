@@ -481,6 +481,17 @@ void HODLR2DTree::getNodes_incoming_box(int j, int k, int& n_rows, int& n_cols, 
       col_indices_local.push_back(IL_Nodes[col_bases[c]]);
     }
     Eigen::MatrixXd D = K->getMatrix(row_indices_local, col_indices_local);
+    // if (j==2 && k==2) {
+      // std::cout << "k: " << k << "; " << tree[j][k].chargeLocations.size() << std::endl;
+      // std::cout << "boxA_Nodes: " << boxA_Nodes.size() << std::endl;
+      // std::cout << "IL_Nodes: " << IL_Nodes.size() << std::endl;
+      // Eigen::MatrixXd Afull = K->getMatrix(boxA_Nodes, IL_Nodes);
+      //
+      // Eigen::PartialPivLU<Eigen::MatrixXd> D_LU = Eigen::PartialPivLU<Eigen::MatrixXd>(D);
+      // Eigen::MatrixXd Aerr = Afull-Ac*D_LU.solve(Ar);
+      // double errACA = Aerr.norm()/Afull.norm();
+      // std::cout << "errACA: " << errACA << std::endl << std::endl;
+    // }
     Eigen::PartialPivLU<Eigen::MatrixXd> D_T = Eigen::PartialPivLU<Eigen::MatrixXd>(D.transpose());
     tree[j][k].L2P = D_T.solve(Ac.transpose()).transpose();
   }
@@ -494,11 +505,11 @@ void HODLR2DTree::getNodes_incoming_level(int j) { //LFR; box interactions
 }
 
 void HODLR2DTree::assemble_M2L() {
-  #pragma omp parallel for
+  // #pragma omp parallel for
   for (size_t j = 1; j <= nLevels; j++) {
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (size_t k = 0; k < nBoxesPerLevel[j]; k++) {
-      #pragma omp parallel for
+      // #pragma omp parallel for
       for(int cn=0; cn<4; ++cn) {
         if(tree[j][k].cornerNumbers[cn] != -1) {
           int kIL = tree[j][k].cornerNumbers[cn];
@@ -508,7 +519,7 @@ void HODLR2DTree::assemble_M2L() {
             tree[j][kIL].M2L[k] = tree[j][k].M2L[kIL].transpose();
         }
       }
-      #pragma omp parallel for
+      // #pragma omp parallel for
       for(int in=0; in<12; ++in) {
         if(tree[j][k].innerNumbers[in] != -1) {
           int kIL = tree[j][k].innerNumbers[in];
@@ -518,7 +529,7 @@ void HODLR2DTree::assemble_M2L() {
             tree[j][kIL].M2L[k] = tree[j][k].M2L[kIL].transpose();
         }
       }
-      #pragma omp parallel for
+      // #pragma omp parallel for
       for(int on=0; on<12; ++on) {
         if(tree[j][k].outerNumbers[on] != -1) {
           int kIL = tree[j][k].outerNumbers[on];
@@ -551,7 +562,7 @@ void HODLR2DTree::assignLeafCharges(Eigen::VectorXd &charges) {
 
 void HODLR2DTree::evaluate_M2M() {
   for (size_t j = nLevels; j >= 1; j--) {
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (size_t k = 0; k < nBoxesPerLevel[j]; k++) {
       Eigen::VectorXd source_densities;
       if (j==nLevels) {
@@ -577,26 +588,26 @@ void HODLR2DTree::evaluate_M2M() {
 }
 
 void HODLR2DTree::evaluate_M2L() {
-  #pragma omp parallel for
+  // #pragma omp parallel for
   for (int j=1; j<=nLevels; ++j) {
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (int k=0; k<nBoxesPerLevel[j]; ++k) {//BoxA
       tree[j][k].incoming_potential	=	Eigen::VectorXd::Zero(tree[j][k].incoming_checkPoints.size());
-      #pragma omp parallel for
+      // #pragma omp parallel for
       for(int cn=0; cn<4; ++cn) {
         if(tree[j][k].cornerNumbers[cn] != -1) {
           int kIL = tree[j][k].cornerNumbers[cn];
           tree[j][k].incoming_potential += tree[j][k].M2L[kIL]*tree[j][kIL].outgoing_charges;
         }
       }
-      #pragma omp parallel for
+      // #pragma omp parallel for
       for(int in=0; in<12; ++in) {
         if(tree[j][k].innerNumbers[in] != -1) {
           int kIL = tree[j][k].innerNumbers[in];
           tree[j][k].incoming_potential += tree[j][k].M2L[kIL]*tree[j][kIL].outgoing_charges;
         }
       }
-      #pragma omp parallel for
+      // #pragma omp parallel for
       for(int on=0; on<12; ++on) {
         if(tree[j][k].outerNumbers[on] != -1) {
           int kIL = tree[j][k].outerNumbers[on];
@@ -609,7 +620,7 @@ void HODLR2DTree::evaluate_M2L() {
 
 void HODLR2DTree::evaluate_L2L() {
   for (size_t j = 1; j <= nLevels; j++) {
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (size_t k = 0; k < nBoxesPerLevel[j]; k++) {
       if (j != nLevels) {
         Eigen::VectorXd temp = tree[j][k].L2P*tree[j][k].incoming_potential;
@@ -627,9 +638,9 @@ void HODLR2DTree::evaluate_L2L() {
 }
 
 void HODLR2DTree::evaluate_NearField() { // evaluating at chargeLocations
-  #pragma omp parallel for
+  // #pragma omp parallel for
   for (size_t k = 0; k < nBoxesPerLevel[nLevels]; k++) {
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (size_t n = 0; n < 4; n++) {
       int nn = tree[nLevels][k].neighborNumbers[n];
       if(nn != -1) {

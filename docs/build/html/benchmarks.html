@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Time Taken vs Tolerance &#8212; HODLR2Ddoc 1.0 documentation</title>
+    <title>Benchmarks &#8212; HODLR2Ddoc 1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -33,14 +33,12 @@
 
           <div class="body" role="main">
             
-  <p>The Gaussian Kernel is given by <span class="math notranslate nohighlight">\(K(i, j) = \sigma^2 \delta_{ij}^2 + \exp(-||x_i - x_j||^2)\)</span>. For these benchmarks, we take <span class="math notranslate nohighlight">\(\sigma = 10\)</span> with <span class="math notranslate nohighlight">\(x\)</span> being set as a sorted random vector <span class="math notranslate nohighlight">\(\in (-1, 1)\)</span>. Using the <code class="docutils literal notranslate"><span class="pre">plotTree</span></code> function of this library, we can look at the rank structure for this matrix. The following diagram is obtained with <span class="math notranslate nohighlight">\(N = 10000\)</span>, <span class="math notranslate nohighlight">\(M = 500\)</span> and tolerance <span class="math notranslate nohighlight">\(10^{-12}\)</span></p>
-<a class="reference internal image-reference" href="images/gaussian_rank_structure.svg"><img alt="images/gaussian_rank_structure.svg" src="images/gaussian_rank_structure.svg" width="400" /></a>
-<p>The green blocks are low-rank blocks. Their intensity of colour shows their degree of “low-rankness”. Additionally, the rank has been displayed in each of these blocks. The red blocks are full-rank blocks and would have the rank of <span class="math notranslate nohighlight">\(M = 500\)</span></p>
+  <div class="section" id="benchmarks">
+<h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this headline">¶</a></h1>
+<p>Below are few benchmarks of the code.</p>
 <div class="section" id="time-taken-vs-tolerance">
-<h1>Time Taken vs Tolerance<a class="headerlink" href="#time-taken-vs-tolerance" title="Permalink to this headline">¶</a></h1>
-<p>These benchmarks were performed for size of the matrix <span class="math notranslate nohighlight">\(N = 1000000\)</span>, with the size of the leaf node set to <span class="math notranslate nohighlight">\(M = 100\)</span>.</p>
-<div class="section" id="fast-matvec">
-<h2>Fast MatVec<a class="headerlink" href="#fast-matvec" title="Permalink to this headline">¶</a></h2>
+<h2>Time Taken vs Tolerance<a class="headerlink" href="#time-taken-vs-tolerance" title="Permalink to this headline">¶</a></h2>
+<p>These benchmarks were performed for size of the matrix <span class="math notranslate nohighlight">\(N = 1000000\)</span>, with atmost <span class="math notranslate nohighlight">\(M = 100\)</span> particles or nodes in a leaf box.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="43%" />
@@ -71,61 +69,68 @@
 <td>35.9898</td>
 </tr>
 <tr class="row-even"><td><span class="math notranslate nohighlight">\(10^{-10}\)</span></td>
-<td>271.837</td>
-<td>43.0653</td>
+<td>502.092</td>
+<td>60.7432</td>
+</tr>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(10^{-12}\)</span></td>
+<td>795.797</td>
+<td>87.0883</td>
+</tr>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(10^{-14}\)</span></td>
+<td>1278.38</td>
+<td>126.954</td>
 </tr>
 </tbody>
 </table>
-<p><a href="#id4"><span class="problematic" id="id5">|:math:`10^{-12}`|</span></a>     |  |
-..
-+—————-+————+———+
-..
-<a href="#id6"><span class="problematic" id="id7">|:math:`10^{-14}`|</span></a>     |  |
-..
-+—————-+————+———+</p>
-<a class="reference internal image-reference" href="images/gaussian1.png"><img alt="images/gaussian1.png" src="images/gaussian1.png" style="width: 600px;" /></a>
-</div>
+<a class="reference internal image-reference" href="_images/timeVsEpsilon.png"><img alt="_images/timeVsEpsilon.png" src="_images/timeVsEpsilon.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="time-taken-vs-size-of-matrix">
-<h1>Time Taken vs Size of Matrix<a class="headerlink" href="#time-taken-vs-size-of-matrix" title="Permalink to this headline">¶</a></h1>
-<p>For these benchmarks, the leaf size was fixed at <span class="math notranslate nohighlight">\(M = 100\)</span>, with tolerance set to <span class="math notranslate nohighlight">\(10^{-12}\)</span></p>
-<div class="section" id="id1">
-<h2>Fast MatVec<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Time Taken vs Size of Matrix<a class="headerlink" href="#time-taken-vs-size-of-matrix" title="Permalink to this headline">¶</a></h2>
+<p>For these benchmarks, the leaf size is atmost <span class="math notranslate nohighlight">\(M = 100\)</span>, with tolerance set to <span class="math notranslate nohighlight">\(10^{-12}\)</span></p>
 <table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="26%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><span class="math notranslate nohighlight">\(N\)</span></th>
+<th class="head">Assembly(s)</th>
+<th class="head">MatVec(s)</th>
+</tr>
+</thead>
 <tbody valign="top">
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(10^{3}\)</span></td>
+<td>0.034163</td>
+<td>0.00362</td>
+</tr>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(5 \times 10^{3}\)</span></td>
+<td>1.05146</td>
+<td>0.029745</td>
+</tr>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(10^{4}\)</span></td>
+<td>2.95279</td>
+<td>0.046561</td>
+</tr>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(5 \times 10^{4}\)</span></td>
+<td>27.0407</td>
+<td>0.389191</td>
+</tr>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(10^{5}\)</span></td>
+<td>89.297</td>
+<td>1.67967</td>
+</tr>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(5 \times 10^{5}\)</span></td>
+<td>336.318</td>
+<td>38.3148</td>
+</tr>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(10^{6}\)</span></td>
+<td>795.797</td>
+<td>87.0883</td>
+</tr>
 </tbody>
 </table>
-<p><a href="#id8"><span class="problematic" id="id9">|:math:`N`              | Assembly(s)|MatVec(s)   |
-..
-+=======================+============+============+
-..
-|:math:`10^{3}`         |  | |
-..
-+-----------------------+------------+------------+
-..
-|:math:`5 \times 10^{3}`|</span></a>  | |
-..
-+———————–+————+————+
-..
-<a href="#id10"><span class="problematic" id="id11">|:math:`10^{4}`         |   |  |
-..
-+-----------------------+------------+------------+
-..
-|:math:`5 \times 10^{4}`|</span></a>    |   |
-..
-+———————–+————+————+
-..
-<a href="#id12"><span class="problematic" id="id13">|:math:`10^{5}`         |    |    |
-..
-+-----------------------+------------+------------+
-|:math:`5 \times 10^{5}`|</span></a>     |     |
-..
-+———————–+————+————+
-..
-<a href="#id2"><span class="problematic" id="id3">|</span></a><span class="math notranslate nohighlight">\(10^{6}\)</span>         |     |     |
-..
-+———————–+————+————+</p>
-<a class="reference internal image-reference" href="images/gaussian3.png"><img alt="images/gaussian3.png" src="images/gaussian3.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/timeVsN.png"><img alt="_images/timeVsN.png" src="_images/timeVsN.png" style="width: 600px;" /></a>
 </div>
 </div>
 
@@ -149,12 +154,9 @@
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Building</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Time Taken vs Tolerance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#fast-matvec">Fast MatVec</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#time-taken-vs-size-of-matrix">Time Taken vs Size of Matrix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Fast MatVec</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#time-taken-vs-tolerance">Time Taken vs Tolerance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-taken-vs-size-of-matrix">Time Taken vs Size of Matrix</a></li>
 </ul>
 </li>
 </ul>
