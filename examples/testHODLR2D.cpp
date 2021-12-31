@@ -56,18 +56,18 @@ int main(int argc, char* argv[]) {
 	MinParticlesInLeaf   =       atoi(argv[2]); // minimum particles in each leaf of KD Tree
 	TOL_POW = atoi(argv[3]);
 }
-
-////////////////////////////
-Eigen::VectorXd b = Eigen::VectorXd::Random(N);
 unsigned Dimension = 2;
+//////////////     user definitions   //////////////
+Eigen::VectorXd b = Eigen::VectorXd::Random(N);
+
 Eigen::MatrixXd loc(N,Dimension);
 for (size_t j = 0; j < N; j++) {
   for (size_t k = 0; k < Dimension; k++) {
     loc(j,k) = 2.0*double(rand())/double(RAND_MAX)-1.0;
   }
 }
-double start, end;
 ///////////////////////// HODLR2 /////////////////////////////
+double start, end;
 start	=	omp_get_wtime();
 HODLR2* hodlr2 = new HODLR2(N, MinParticlesInLeaf, TOL_POW, loc);
 end	=	omp_get_wtime();
@@ -88,16 +88,6 @@ double timeAssemble = end-start;
 std::cout << "========================= Assembly Time =========================" << std::endl;
 std::cout << "Time for assemble in HODLR2 form    :" << timeAssemble << std::endl;
 
-
-// What we are doing here is explicitly generating
-// the matrix from its entries
-start = omp_get_wtime();
-Eigen::MatrixXd B = hodlr2->hodlr2dtree->K->getMatrix(0, 0, N, N);
-end   = omp_get_wtime();
-double exact_time = (end - start);
-std::cout << "Time for direct matrix generation  :" << exact_time << std::endl;
-std::cout << "Magnitude of Speed-Up              :" << (exact_time / timeAssemble) << std::endl << std::endl;
-
 Eigen::VectorXd outputVec;
 start = omp_get_wtime();
 outputVec = hodlr2->computeMatVecProduct(b);
@@ -107,22 +97,5 @@ double timeMatVecProduct = (end - start);
 
 std::cout << "========================= Matrix-Vector Multiplication =========================" << std::endl;
 std::cout << "Time for MatVec in HODLR form      :" << timeMatVecProduct << std::endl;
-
-start = omp_get_wtime();
-Eigen::VectorXd bSorted(N);
-for (size_t i = 0; i < N; i++) {
-  bSorted(i) = b(int(hodlr2->sorted_Properties[i]));
-}
-Eigen::MatrixXd r_exact_Sorted = B * bSorted;
-Eigen::VectorXd r_exact(N);
-for (size_t i = 0; i < N; i++) {
-  r_exact(int(hodlr2->sorted_Properties[i])) = r_exact_Sorted(i);
-}
-
-end   = omp_get_wtime();
-exact_time = (end - start);
-std::cout << "Time for direct MatVec             :" << exact_time << std::endl;
-std::cout << "Magnitude of Speed-Up              :" << (exact_time / timeMatVecProduct) << std::endl;
-// Computing the relative error in the solution obtained:
-std::cout << "Error in the solution is           :" << (outputVec-r_exact).norm() / (r_exact.norm()) << std::endl << std::endl;
+hodlr2->evaluateError();
 }

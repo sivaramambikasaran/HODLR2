@@ -1,8 +1,7 @@
 #include "HODLR2D.hpp"
 
-HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc, double L) {
+HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc) {
   this->N = N;
-  this->L = L;
   this->MinParticlesInLeaf = MinParticlesInLeaf;
   this->TOL_POW = TOL_POW;
   nLevels      = log(N/MinParticlesInLeaf)/log(4);
@@ -32,7 +31,7 @@ HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc,
   sort_KDTree(N, n_Dimension, locations, n_Properties, properties, MinParticlesInLeaf, nLevels, sorted_Locations, sorted_Properties, boxNumbers, NumberOfParticlesInLeaves); // Creates a KDTree given the locations. This KD Tree class generates a uniform tree - all leaves are at level nLevels. Number of particles in boxes at a given level differ by atmost 1.
   std::vector<pts2D> particles_X, particles_Y;
   mykernel		=	new userkernel(particles_X, particles_Y);
-  hodlr2dtree	=	new HODLR2DTree(mykernel, int(N), int(nLevels), L, TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
+  hodlr2dtree	=	new HODLR2DTree(mykernel, int(N), int(nLevels), TOL_POW, sorted_Locations, boxNumbers[nLevels], NumberOfParticlesInLeaves);
   hodlr2dtree->createTree();
   hodlr2dtree->assign_Tree_Interactions();
   hodlr2dtree->assign_Center_Location();
@@ -68,7 +67,7 @@ Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
 void HODLR2::evaluateError() {
   srand(time(NULL));
   std::cout << std::endl << "Performing error calculation in box: " << std::endl;
-  for (size_t nBox = 0; nBox < 16; nBox++) {
+  for (size_t nBox = 0; nBox < 1; nBox++) {
     // int nBox	=	rand()%hodlr2dtree->nBoxesPerLevel[nLevels];
     std::cout << "nBox: " << nBox << "	err: " << hodlr2dtree->compute_error(nBox) << std::endl;
   }

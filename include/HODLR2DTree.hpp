@@ -14,7 +14,6 @@ public:
 	userkernel* K;
 	int nLevels;			//	Number of levels in the tree.
 	int N;					//	Number of particles.
-	double L;				//	Semi-length of the simulation box.
 	double smallestBoxSize;	//	This is L/2.0^(nLevels).
 
 	std::vector<int> nBoxesPerLevel;			//	Number of boxes at each level in the tree.
@@ -32,7 +31,7 @@ public:
 	std::vector<int> NumberOfParticlesInLeaves;
 
 // public:
-	HODLR2DTree(userkernel* K, int N, int nLevels, double L, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves);
+	HODLR2DTree(userkernel* K, int N, int nLevels, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves);
   void shift_Nodes(double radius, pts2D center, std::vector<pts2D> &particle_loc);
 	void createTree();
 	void assign_Child0_Interaction(int j, int k);//	Assigns the interactions for child0 of a box

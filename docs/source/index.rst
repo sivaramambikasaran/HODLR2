@@ -37,6 +37,7 @@ Doc Contents
    :caption: Contents:
 
    installation
+   tutorial
    benchmarks
 
 Other Links
@@ -45,4 +46,4 @@ Other Links
 Learn more about :math:`\texttt{HODLR2lib}` by visiting the
 
 * Code Repository: http://github.com/sivaramambikasaran/HODLR2
-* Documentation: http://hodlr2lib.rtfd.io
+* Documentation: https://hodlr2.rtfd.io

@@ -27,8 +27,7 @@ public:
 	double* sorted_Properties;
 	userkernel* mykernel;
 	HODLR2DTree* hodlr2dtree;
-  double L;
-	HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc, double L);
+	HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc);
   void assemble();
   Eigen::VectorXd computeMatVecProduct(Eigen::VectorXd inputVecUnsorted);
   void evaluateError();

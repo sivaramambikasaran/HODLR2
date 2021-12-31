@@ -1,10 +1,9 @@
 #include "HODLR2DTree.hpp"
 // #include "../include/HODLR2DTree.hpp"
 
-HODLR2DTree::HODLR2DTree(userkernel* K, int N, int nLevels, double L, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves) {
+HODLR2DTree::HODLR2DTree(userkernel* K, int N, int nLevels, int TOL_POW, double* locations, std::vector<int>& boxNumbers, std::vector<int>& NumberOfParticlesInLeaves) {
   this->K					=	K;
   this->nLevels		=	nLevels;
-  this->L					=	L;
   this->locations = locations;
   this->boxNumbers= boxNumbers;
   this->NumberOfParticlesInLeaves = NumberOfParticlesInLeaves;
@@ -12,7 +11,7 @@ HODLR2DTree::HODLR2DTree(userkernel* K, int N, int nLevels, double L, int TOL_PO
   // this->nParticlesInLeaf = nParticlesInLeafAlong1D*nParticlesInLeafAlong1D;
   this->TOL_POW = TOL_POW;
   nBoxesPerLevel.push_back(1);
-  boxRadius.push_back(L);
+  boxRadius.push_back(1.0);
   for (int k=1; k<=nLevels; ++k) {
     nBoxesPerLevel.push_back(4*nBoxesPerLevel[k-1]);
     boxRadius.push_back(0.5*boxRadius[k-1]);
