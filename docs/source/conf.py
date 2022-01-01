@@ -104,7 +104,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'HODLR2Ddocdoc'
+htmlhelp_basename = 'HODLR2Dlibdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -175,5 +175,28 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
+html_theme = "sphinx_rtd_theme"
+# html_theme = "classic"
+# html_theme = "bizstyle"
+html_theme_options = {
+    # "rightsidebar": "true",
+    # "relbarbgcolor": "black"
+}
 
 # -- Extension configuration -------------------------------------------------
+# html_theme_options = {
+#     'analytics_id': 'G-XXXXXXXXXX',  #  Provided by Google in your dashboard
+#     'analytics_anonymize_ip': False,
+#     'logo_only': False,
+#     'display_version': True,
+#     'prev_next_buttons_location': 'bottom',
+#     'style_external_links': False,
+#     'vcs_pageview_mode': '',
+#     'style_nav_header_background': 'white',
+#     # Toc options
+#     'collapse_navigation': True,
+#     'sticky_navigation': True,
+#     'navigation_depth': 4,
+#     'includehidden': True,
+#     'titles_only': False
+# }
