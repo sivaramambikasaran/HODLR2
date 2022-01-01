@@ -175,13 +175,13 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-html_theme = "sphinx_rtd_theme"
-# html_theme = "classic"
+# html_theme = "sphinx_rtd_theme"
+html_theme = "classic"
 # html_theme = "bizstyle"
-html_theme_options = {
+# html_theme_options = {
     # "rightsidebar": "true",
     # "relbarbgcolor": "black"
-}
+# }
 
 # -- Extension configuration -------------------------------------------------
 # html_theme_options = {
