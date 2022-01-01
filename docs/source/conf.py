@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'HODLR2Ddoc'
+project = u'HODLR2lib'
 copyright = u'2021, vaishnavi'
 author = u'vaishnavi'
 
@@ -78,7 +78,7 @@ pygments_style = None
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
-
+html_logo = "images/HODLR2_logo10.png"
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'HODLR2Ddoc.tex', u'HODLR2Ddoc Documentation',
+    (master_doc, 'HODLR2lib.tex', u'HODLR2lib Documentation',
      u'vaishnavi', 'manual'),
 ]
 
@@ -141,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'hodlr2ddoc', u'HODLR2Ddoc Documentation',
+    (master_doc, 'hodlr2ddoc', u'HODLR2lib Documentation',
      [author], 1)
 ]
 
@@ -152,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'HODLR2Ddoc', u'HODLR2Ddoc Documentation',
-     author, 'HODLR2Ddoc', 'One line description of project.',
+    (master_doc, 'HODLR2lib', u'HODLR2lib Documentation',
+     author, 'HODLR2lib', 'One line description of project.',
      'Miscellaneous'),
 ]
 
