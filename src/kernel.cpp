@@ -46,6 +46,19 @@ Eigen::MatrixXd kernel::getMatrix(std::vector<int> row_indices, std::vector<int>
   return mat;
 }
 
+Eigen::MatrixXd kernel::getMatrix(int row_index, std::vector<int> col_indices) {
+  int n_cols = col_indices.size();
+  Eigen::MatrixXd mat(1, n_cols);
+  #pragma omp parallel for
+  for (int j=0; j < 1; ++j) {
+      #pragma omp parallel for
+      for (int k=0; k < n_cols; ++k) {
+          mat(j,k) = this->getMatrixEntry(row_index, col_indices[k]);
+      }
+  }
+  return mat;
+}
+
 double userkernel::defineVector(const pts2D r) {
   double q = r.x; //user defined
   return q;

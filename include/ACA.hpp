@@ -16,7 +16,7 @@ public:
 	void maxAbsVector(const Eigen::VectorXd& v, const std::set<int>& allowed_indices,
 																double max, int& index
 															);
-	void ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_bases, int &computed_rank, Eigen::MatrixXd &Ac, Eigen::MatrixXd &Ar);
+	void ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_bases, int &computed_rank);
 };
 
 #endif

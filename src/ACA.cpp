@@ -24,7 +24,7 @@ void LowRank::maxAbsVector(const Eigen::VectorXd& v, const std::set<int>& allowe
   }
 }
 
-void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_bases, int &computed_rank, Eigen::MatrixXd &Ac, Eigen::MatrixXd &Ar) {
+void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_bases, int &computed_rank) {
   int col_index;
   int row_index;
   int N1 = row_indices.size();
@@ -39,8 +39,8 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
   if (N1 > N2) {
     min = N2;
   }
-  Ac = Eigen::MatrixXd(N1, min);
-  Ar = Eigen::MatrixXd(min, N2);
+  // Ac = Eigen::MatrixXd(N1, min);
+  // Ar = Eigen::MatrixXd(min, N2);
 
   std::set<int> remaining_row_ind;
   std::set<int> remaining_col_ind;
@@ -62,8 +62,8 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
     }
   }
   if (l_local == N1) {
-    Ac = Ac.block(0,0,N1,computed_rank);
-    Ar = Ar.block(0,0,computed_rank,N2);
+    // Ac = Ac.block(0,0,N1,computed_rank);
+    // Ar = Ar.block(0,0,computed_rank,N2);
     return;
   }
   v=row/row(int(col_index));
@@ -73,8 +73,10 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
   u	=	col;
   Uvec.push_back(u);
   Vvec.push_back(v);
-  Ac.col(computed_rank) = col;
-  Ar.row(computed_rank) = row;
+  // Ac.col(computed_rank) = col;
+  // Ar.row(computed_rank) = row;
+  // Ac.col(computed_rank) = u;
+  // Ar.row(computed_rank) = v;
   remaining_col_ind.erase(col_index);
   remaining_row_ind.erase(row_index);
   computed_rank = 1;
@@ -106,15 +108,17 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
       }
     }
     u	=	col;
-    // if(u.norm()< 1e-8 || v.norm()< 1e-8) {
-    //   row_bases.pop_back();
-    //   col_bases.pop_back();
-    //   break;
-    // }
+    if(u.norm()< 1e-16 || v.norm()< 1e-16) {
+      row_bases.pop_back();
+      col_bases.pop_back();
+      break;
+    }
     Uvec.push_back(u);
     Vvec.push_back(v);
-    Ac.col(computed_rank) = col_temp;
-    Ar.row(computed_rank) = row_temp;
+    // Ac.col(computed_rank) = col_temp; // cur form
+    // Ar.row(computed_rank) = row_temp;
+    // Ac.col(computed_rank) = u; // UV form
+    // Ar.row(computed_rank) = v;
 
     ++computed_rank;
     remaining_col_ind.erase(col_index);
@@ -128,6 +132,6 @@ void LowRank::ACA_only_nodes(std::vector<int>& row_bases, std::vector<int>& col_
     normS	=	sqrt(normS);
     this->maxAbsVector(col, remaining_row_ind, max, row_index);
   }
-  Ac = Ac.block(0,0,N1,computed_rank);
-  Ar = Ar.block(0,0,computed_rank,N2);
+  // Ac = Ac.block(0,0,N1,computed_rank);
+  // Ar = Ar.block(0,0,computed_rank,N2);
 }

@@ -29,6 +29,7 @@ public:
   Eigen::VectorXd getCol(const int k, std::vector<int> row_indices);
   Eigen::MatrixXd getMatrix(int row_start_index, int row_end_index, int col_start_index, int col_end_index);
   Eigen::MatrixXd getMatrix(std::vector<int> row_indices, std::vector<int> col_indices);
+  Eigen::MatrixXd getMatrix(int index, std::vector<int> col_indices);
 
   ~kernel() {};
 };

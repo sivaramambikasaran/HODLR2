@@ -22,15 +22,15 @@ public:
 	pts2D center;
 	Eigen::VectorXd charges;
 
-	std::map<int, Eigen::MatrixXd> M2L;
-	Eigen::MatrixXd L2P;					//	Transfer from multipoles of 4 children to multipoles of parent.
+	// std::map<int, Eigen::MatrixXd> M2L;
 	std::vector<pts2D> chebNodes;
 	std::vector<int> chargeLocations;
 
 	Eigen::VectorXd outgoing_charges;//equivalent densities {f_{k}^{B,o}}
 	Eigen::VectorXd incoming_potential;//check potentials {u_{k}^{B,i}}
-	std::vector<int> incoming_chargePoints;//equivalent points {y_{k}^{B,i}}
-	std::vector<int> incoming_checkPoints;//check points {x_{k}^{B,i}}
+	std::vector<int> rows_basis;//equivalent points {y_{k}^{B,i}}
+	std::vector<int> col_basis;//check points {x_{k}^{B,i}}
+	int numberOfChargesInIL;
 	Eigen::VectorXd potential;//used only at leaf level
 };
 

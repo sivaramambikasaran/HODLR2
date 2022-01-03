@@ -36,11 +36,11 @@ HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc)
   hodlr2dtree->assign_Tree_Interactions();
   hodlr2dtree->assign_Center_Location();
   hodlr2dtree->assignLeafChargeLocations();
+  hodlr2dtree->assignBoxChargeLocations();
 }
 
 void HODLR2::assemble() {
-  hodlr2dtree->getNodes();
-  hodlr2dtree->assemble_M2L();
+  hodlr2dtree->compress();
 }
 
 Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
@@ -50,9 +50,9 @@ Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
     inputVec(i) = inputVecUnsorted(int(sorted_Properties[i]));
   }
   hodlr2dtree->assignLeafCharges(inputVec);
-  hodlr2dtree->evaluate_M2M();
-  hodlr2dtree->evaluate_M2L();
-  hodlr2dtree->evaluate_L2L();
+  hodlr2dtree->assignBoxCharges();
+  // hodlr2dtree->check();
+  hodlr2dtree->fastMultiply();
   hodlr2dtree->evaluate_NearField();
   outputVec = Eigen::VectorXd(N);
   Eigen::VectorXd outputVecSorted;
@@ -67,8 +67,8 @@ Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
 void HODLR2::evaluateError() {
   srand(time(NULL));
   std::cout << std::endl << "Performing error calculation in box: " << std::endl;
-  for (size_t nBox = 0; nBox < 1; nBox++) {
-    // int nBox	=	rand()%hodlr2dtree->nBoxesPerLevel[nLevels];
+  for (size_t i = 0; i < 1; i++) {
+    int nBox	=	rand()%hodlr2dtree->nBoxesPerLevel[nLevels];
     std::cout << "nBox: " << nBox << "	err: " << hodlr2dtree->compute_error(nBox) << std::endl;
   }
 }

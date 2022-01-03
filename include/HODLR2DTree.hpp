@@ -43,15 +43,17 @@ public:
 	void assign_Tree_Interactions();//	Assigns the interactions for the children all boxes in the tree
 	void assign_Center_Location();
 	void assignLeafChargeLocations();
-	void getNodes();
-	void getParticlesFromChildren_incoming(int j, int k, std::vector<int>& searchNodes);
-	void getNodes_incoming_box(int j, int k, int& n_rows, int& n_cols, int& ComputedRank);
-	void getNodes_incoming_level(int j);
-	void assemble_M2L();
+	void assignBoxChargeLocations();
+	void compress();
+	void check();
+	void compressPerBox(int j, int k);
+	void compressPerLevel(int j);
+	void fastMultiply();
+	void fastMultiplyPerLevel(int j);
+	void fastMultiplyPerBox(int j, int k);
+	void segmentParentPotentialToChildren(int j, int k);
 	void assignLeafCharges(Eigen::VectorXd &charges);
-	void evaluate_M2M();
-	void evaluate_M2L();
-	void evaluate_L2L();
+	void assignBoxCharges();
 	void evaluate_NearField(); // evaluating at chargeLocations
 	double compute_error(int nBox); // evaluating at chargeLocations
 	Eigen::VectorXd getMatVecProductOutput();
