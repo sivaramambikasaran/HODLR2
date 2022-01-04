@@ -66,13 +66,13 @@ for (size_t j = 0; j < N; j++) {
     loc(j,k) = 2.0*double(rand())/double(RAND_MAX)-1.0;
   }
 }
-///////////////////////// HODLR2 /////////////////////////////
+///////////////////////// HODLR2D /////////////////////////////
 double start, end;
 start	=	omp_get_wtime();
-HODLR2* hodlr2 = new HODLR2(N, MinParticlesInLeaf, TOL_POW, loc);
+HODLR2D* hodlr2d = new HODLR2D(N, MinParticlesInLeaf, TOL_POW, loc);
 end	=	omp_get_wtime();
 double timeCreateTreeAFMM = end-start;
-std::cout << std::endl << "HODLR2 tree creation time: " << timeCreateTreeAFMM << std::endl;
+std::cout << std::endl << "HODLR2D tree creation time: " << timeCreateTreeAFMM << std::endl;
 
 std::cout << "========================= Problem Parameters =========================" << std::endl;
 std::cout << "Matrix Size                        :" << N << std::endl;
@@ -82,20 +82,20 @@ unsigned nLevels = log(N/MinParticlesInLeaf)/log(4);
 // std::cout << "nLevels: " << nLevels << std::endl;
 
 start	=	omp_get_wtime();
-hodlr2->assemble();
+hodlr2d->assemble();
 end	=	omp_get_wtime();
 double timeAssemble = end-start;
 std::cout << "========================= Assembly Time =========================" << std::endl;
-std::cout << "Time for assemble in HODLR2 form    :" << timeAssemble << std::endl;
+std::cout << "Time for assemble in HODLR2D form    :" << timeAssemble << std::endl;
 
 Eigen::VectorXd outputVec;
 start = omp_get_wtime();
-outputVec = hodlr2->computeMatVecProduct(b);
+outputVec = hodlr2d->computeMatVecProduct(b);
 end   = omp_get_wtime();
 double timeMatVecProduct = (end - start);
-// hodlr2->evaluateError();
+// hodlr2d->evaluateError();
 
 std::cout << "========================= Matrix-Vector Multiplication =========================" << std::endl;
 std::cout << "Time for MatVec in HODLR form      :" << timeMatVecProduct << std::endl;
-hodlr2->evaluateError();
+hodlr2d->evaluateError();
 }

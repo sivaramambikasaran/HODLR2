@@ -13,7 +13,7 @@
 #include "HODLR2DTree.hpp"
 #include "KDTree.hpp"
 
-class HODLR2 {
+class HODLR2D {
 public:
 	int N;
 	int MinParticlesInLeaf;
@@ -27,11 +27,11 @@ public:
 	double* sorted_Properties;
 	userkernel* mykernel;
 	HODLR2DTree* hodlr2dtree;
-	HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc);
+	HODLR2D(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc);
   void assemble();
   Eigen::VectorXd computeMatVecProduct(Eigen::VectorXd inputVecUnsorted);
   void evaluateError();
-  ~HODLR2();
+  ~HODLR2D();
 };
 
 #endif

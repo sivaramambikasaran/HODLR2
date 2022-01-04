@@ -1,6 +1,6 @@
 #include "HODLR2D.hpp"
 
-HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc) {
+HODLR2D::HODLR2D(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc) {
   this->N = N;
   this->MinParticlesInLeaf = MinParticlesInLeaf;
   this->TOL_POW = TOL_POW;
@@ -39,11 +39,11 @@ HODLR2::HODLR2(int N, int MinParticlesInLeaf, int TOL_POW, Eigen::MatrixXd& loc)
   hodlr2dtree->assignBoxChargeLocations();
 }
 
-void HODLR2::assemble() {
+void HODLR2D::assemble() {
   hodlr2dtree->compress();
 }
 
-Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
+Eigen::VectorXd HODLR2D::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
   Eigen::VectorXd outputVec;
   Eigen::VectorXd inputVec(N); //converting array to Eigen vector
   for (size_t i = 0; i < N; i++) {
@@ -64,7 +64,7 @@ Eigen::VectorXd HODLR2::computeMatVecProduct(Eigen::VectorXd inputVecUnsorted) {
   return outputVec;
 }
 
-void HODLR2::evaluateError() {
+void HODLR2D::evaluateError() {
   srand(time(NULL));
   std::cout << std::endl << "Performing error calculation in box: " << std::endl;
   for (size_t i = 0; i < 1; i++) {
@@ -73,7 +73,7 @@ void HODLR2::evaluateError() {
   }
 }
 
-HODLR2::~HODLR2() {
+HODLR2D::~HODLR2D() {
   delete locations;
   delete properties;
   delete sorted_Locations;

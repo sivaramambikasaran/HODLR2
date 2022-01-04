@@ -67,12 +67,12 @@ for (size_t j = 0; j < N; j++) {
   }
 }
 double start, end;
-///////////////////////// HODLR2 /////////////////////////////
+///////////////////////// HODLR2D /////////////////////////////
 start	=	omp_get_wtime();
-HODLR2* hodlr2 = new HODLR2(N, MinParticlesInLeaf, TOL_POW, loc);
+HODLR2D* hodlr2 = new HODLR2D(N, MinParticlesInLeaf, TOL_POW, loc);
 end	=	omp_get_wtime();
 double timeCreateTreeAFMM = end-start;
-std::cout << std::endl << "HODLR2 tree creation time: " << timeCreateTreeAFMM << std::endl;
+std::cout << std::endl << "HODLR2D tree creation time: " << timeCreateTreeAFMM << std::endl;
 
 std::cout << "========================= Problem Parameters =========================" << std::endl;
 std::cout << "Matrix Size                        :" << N << std::endl;
@@ -86,7 +86,7 @@ hodlr2->assemble();
 end	=	omp_get_wtime();
 double timeAssemble = end-start;
 std::cout << "========================= Assembly Time =========================" << std::endl;
-std::cout << "Time for assemble in HODLR2 form    :" << timeAssemble << std::endl;
+std::cout << "Time for assemble in HODLR2D form    :" << timeAssemble << std::endl;
 
 
 // What we are doing here is explicitly generating
