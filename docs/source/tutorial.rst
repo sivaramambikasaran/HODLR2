@@ -48,7 +48,7 @@ The matrix that needs to be solved for is abstracted through this derived class 
   };
 
 
-In this tutorial, we have initialized ``loc``, a random set of points in :math:`(-1, 1)` which are then passed to the constructor of object ``HODLR2``::
+In this tutorial, we have initialized ``loc``, a random set of points in :math:`(-1, 1)` which are then passed to the constructor of object ``HODLR2D``::
 
   Eigen::MatrixXd loc(N,Dimension);
   for (size_t j = 0; j < N; j++) {
@@ -64,25 +64,25 @@ In this tutorial, we have defined ``b``, the vector that is to be multiplied to 
 
   Eigen::VectorXd b = Eigen::VectorXd::Random(N);
 
-Creating the Instance of ``HODLR2``:
+Creating the Instance of ``HODLR2D``:
 ------------------------------------
 
-The main operations of this library are carried out through the ``HODLR2`` class. The parameters that are taken for the constructor are N, MinParticlesInLeaf, TOL_POW, loc::
+The main operations of this library are carried out through the ``HODLR2D`` class. The parameters that are taken for the constructor are N, MinParticlesInLeaf, TOL_POW, loc::
 
-  HODLR2* hodlr2 = new HODLR2(N, MinParticlesInLeaf, TOL_POW, loc);
+  HODLR2D* hodlr2d = new HODLR2D(N, MinParticlesInLeaf, TOL_POW, loc);
 
 We will now proceed to demonstrate the individual methods available under this class.
 
 ``assemble``
 ^^^^^^^^^^^^
 
-Assemble the matrix in HODLR2 structure; i.e. it finds the low rank representation of the appropriate matrix sub-blocks::
+Assemble the matrix in HODLR2D structure; i.e. it finds the low rank representation of the appropriate matrix sub-blocks::
 
-  hodlr2->assemble();
+  hodlr2d->assemble();
 
 ``Mat-Vec product``
 ^^^^^^^^^^^^^^^^^^^
 
 Multiplies the matrix that is defined through object ``userkernel`` with the vector ``b``::
 
-  outputVec = hodlr2->computeMatVecProduct(b);
+  outputVec = hodlr2d->computeMatVecProduct(b);
